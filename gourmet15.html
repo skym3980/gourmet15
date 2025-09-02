@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新郎厳選！本当におすすめしたい全国グルメ15選</title>
+    <!-- InterフォントをGoogle Fontsから読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        /* 画像全体が表示されるように修正 */
+        .main-image {
+            max-height: 24rem; /* Tailwindのh-96に相当 */
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-start min-h-screen p-4">
+
+    <!-- ページ全体のヘッダー -->
+    <header class="w-full max-w-3xl bg-white p-6 rounded-xl shadow-lg mt-6 mb-8 text-center">
+        <h1 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 mb-2">
+            新郎厳選！本当におすすめしたい全国グルメ15選
+        </h1>
+        <p class="text-gray-600 leading-relaxed mb-4">
+            これまで旅行先やデートで行った色んなお店から、<br>
+            「ここは本当に美味しかった」と思える珠玉のお店をご紹介します！
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-4">
+            過去5年間で美味しかったお店をピックアップしていったら<br>
+            90軒以上になってしまったので、泣く泣く15軒に絞りました。
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+            中座のお時間や、披露宴後にも見返していただき、<br>
+            1か所でも実際に行ってもらえるととても嬉しいです！！
+        </p>
+    </header>
+
+    <!-- フィルタリングボタンコンテナ -->
+    <div class="w-full max-w-3xl bg-white p-6 rounded-xl shadow-md mb-8">
+        <div class="mb-4">
+            <h3 class="font-bold text-gray-800 mb-2">エリア:</h3>
+            <div class="flex flex-wrap gap-2">
+                <button data-filter="金沢" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">金沢</button>
+                <button data-filter="草津" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">草津</button>
+                <button data-filter="秋田" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">秋田</button>
+                <button data-filter="静岡" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">静岡</button>
+                <button data-filter="香川" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">香川</button>
+                <button data-filter="練馬" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">練馬</button>
+                <button data-filter="多摩地域" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">多摩地域</button>
+                <button data-filter="沖縄" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">沖縄</button>
+                <button data-filter="別府" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">別府</button>
+                <button data-filter="横浜" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">横浜</button>
+                <button data-filter="台湾" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">台湾</button>
+                <button data-filter="島根" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">島根</button>
+                <button data-filter="鳥取" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">鳥取</button>
+                <button data-filter="江古田" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">江古田</button>
+            </div>
+        </div>
+        <div>
+            <h3 class="font-bold text-gray-800 mb-2">ジャンル:</h3>
+            <div class="flex flex-wrap gap-2">
+                <button data-filter="寿司" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">寿司</button>
+                <button data-filter="海鮮丼" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">海鮮丼</button>
+                <button data-filter="定食" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">定食</button>
+                <button data-filter="焼き鳥" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">焼き鳥</button>
+                <button data-filter="牡蠣" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">牡蠣</button>
+                <button data-filter="まぐろ丼" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">まぐろ丼</button>
+                <button data-filter="うどん" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">うどん</button>
+                <button data-filter="焼肉" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">焼肉</button>
+                <button data-filter="タコライス" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">タコライス</button>
+                <button data-filter="冷麺" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">冷麺</button>
+                <button data-filter="ビストロ" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">ビストロ</button>
+                <button data-filter="ガチョウ肉" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">ガチョウ肉</button>
+                <button data-filter="ヨーグルト" class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-purple-200 hover:text-purple-700">ヨーグルト</button>
+            </div>
+        </div>
+        <button id="show-all-btn" class="mt-4 px-6 py-2 rounded-full bg-purple-500 text-white hover:bg-purple-600">全て表示</button>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <main id="main-content" class="w-full max-w-3xl">
+
+        <!-- すし玉の記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2020年9月,金沢,寿司">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">寿司（廻る富山湾 すし玉 金沢駅店）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2020年9月</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/h6aDTzl.jpeg" alt="お寿司" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/h6aDTzl.jpeg" alt="お寿司 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/KzmjL4x.jpeg" alt="お寿司 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/KCUhNXV.jpeg" alt="お寿司 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/ej2zWYE.jpeg" alt="お寿司 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/p51i6iQ.jpeg" alt="お寿司 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                    <img src="https://i.imgur.com/zxi4wE1.jpeg" alt="お寿司 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="5">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                初めて宿泊の旅行で金沢に行ったときに到着後、最初に食べた回転寿司のお店。<br>
+                金沢の回転寿司だと「もりもり寿司」が有名だが、シルバーウィークに行ったこともあり、あまりに待ち時間が長かったため代わりにこちらのお店に行くことに。<br>
+                結果めちゃくちゃ美味しく、特に一皿目に食べたのどぐろに感動してしまい(恐らくこのときが人生初のどぐろ)、それ以来のどぐろが大好物となった。
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/ishikawa/A1701/A170101/17001242/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+        </section>
+
+        <!-- いきいき亭 近江町店の記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2020年9月,金沢,海鮮丼">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">海鮮丼（いきいき亭 近江町店）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2020年9月</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/CLo9n6R.jpeg" alt="海鮮丼" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/CLo9n6R.jpeg" alt="海鮮丼 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/XpDVQRI.jpeg" alt="海鮮丼 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/bnI0JRT.jpeg" alt="海鮮丼 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/p73mIhM.jpeg" alt="海鮮丼 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/UxVcBFO.jpeg" alt="海鮮丼 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                近江町市場という金沢の有名な市場にある海鮮丼のお店。朝7時過ぎに受付して食べ始めたのが10時前だったので3時間弱待ったが、その甲斐があるくらい美味しかったし、コスパもめちゃくちゃ良かった（当時は海鮮丼が2,200円）<br>
+                店員さんが朝に受付していたお客さん（自分達含め）には写真をとってくれたりなど、ものすごいホスピタリティを発揮していて優しいのに、ふらっと立ち寄ったお客さんにはめちゃくちゃ厳しく対応していたのが印象的だった。
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/ishikawa/A1701/A170101/17001392/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+            </div>
+        </section>
+
+        <!-- ヤマイロの記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2020年10月,草津,定食">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">定食（朝ごはん 午後ごはん ヤマイロ）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2020年10月</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/7l0NVo2.jpeg" alt="焼鮭定食" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/7l0NVo2.jpeg" alt="焼鮭定食 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/ifFhSKx.jpeg" alt="お店の外観 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/xJxFsHo.jpeg" alt="ハーブティー サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/3UxgHfE.jpeg" alt="トーストセット サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/65I4XL0.jpeg" alt="パンケーキ サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                    <img src="https://i.imgur.com/PBEFMDv.jpeg" alt="パンケーキ サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="5">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                草津温泉街にある定食のお店。草津には何回か行っているが、毎回必ずここで朝（昼兼用）ご飯を食べる。<br>
+                トーストセットもあるが、結局焼鮭が食べたくなって毎回焼鮭定食を頼んでしまう。<br>
+                また定食はハーブティー（ティーポット１杯分）がセットになっていて、店内に置いてあるいろんな種類のハーブから好きなものを選んでオリジナルのハーブティーを作ることができる。<br>
+                温泉に入ってここでご飯を食べるとめちゃくちゃ健康になった気分になれるのでおすすめ。
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/gunma/A1004/A100402/10020874/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+        </section>
+        
+        <!-- 秋田比内やの記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2020年11月,秋田,焼き鳥">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">焼き鳥（秋田比内や）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2020年11月</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/NJRA7hZ.jpeg" alt="焼き鳥" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/NJRA7hZ.jpeg" alt="焼き鳥 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/mifTQwK.jpeg" alt="比内地鶏" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/Dm6X7Jw.jpeg" alt="親子丼" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/vfYcJ7s.jpeg" alt="焼き鳥" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/aCRbzaN.jpeg" alt="焼き鳥" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                    <img src="https://i.imgur.com/MdMpxTb.jpeg" alt="メニュー" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="5">
+                    <img src="https://i.imgur.com/XeObfFJ.jpeg" alt="内装" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="6">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                ここは一人で秋田旅行に行ったときに食べたお店です。（すいません）<br>
+                最初に入ろうとしたときに満席だったため、別の焼き鳥屋で食べてから（そっちの店もかなり美味しかった）２軒目で行ったのだが、もっと色んなメニューを頼みたかったと後悔するくらい美味しかった。<br>
+                特に最後の締めに食べた親子丼が史上最高に美味しく、冗談抜きでデザートくらいの感覚で食べられてしまった。味の記憶を上書きしたくなさすぎて、これ以降１年以上親子丼を食べなかった。<br>
+                値段も全体的にそこまで高くないため、コスパ的な観点でも満足度は非常に高かった。
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/akita/A0502/A050201/5000030/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+        </section>
+
+        <!-- 清水港みなみの記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2021年3月,静岡,まぐろ丼">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">まぐろ丼（清水港みなみ）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2021年3月</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/4fZ4KOZ.jpeg" alt="まぐろ丼" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/4fZ4KOZ.jpeg" alt="まぐろ丼 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/SwzInDo.jpeg" alt="まぐろ丼 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/75kdGdx.jpeg" alt="まぐろ丼 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/reEkONp.jpeg" alt="まぐろ丼 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/cRVvJG6.jpeg" alt="まぐろ丼 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                    <img src="https://i.imgur.com/dHRoIKG.jpeg" alt="まぐろ丼 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="5">
+                    <img src="https://i.imgur.com/EQF3gHi.jpeg" alt="まぐろ丼 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="6">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                グルメとは別でサウナも好きで、「しきじ」という有名なサウナへ行くために静岡市に行ったときに立ち寄ったまぐろ丼のお店。<br>
+                静岡駅から近いためアクセスが良く、コスパもいいのにめちゃくちゃ美味しいので、並びこそするが、まぐろ丼食べるならここ一択と思っている。
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/shizuoka/A2201/A220101/22016103/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+        </section>
+
+        <!-- 釜あげうどん 長田 in 香の香の記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2021年5月,香川,うどん">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">釜あげうどん（長田 in 香の香）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2021年5月</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/WU0GcEk.jpeg" alt="釜あげうどん" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/WU0GcEk.jpeg" alt="釜あげうどん サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/NWWymFz.jpeg" alt="つゆの土瓶 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/jSqAwmT.jpeg" alt="お店の外観 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/U11YnC3.jpeg" alt="メニュー サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/z9H3tkJ.jpeg" alt="釜揚げうどん サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                    <img src="https://i.imgur.com/Fsc9MTR.jpeg" alt="釜揚げうどん サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="5">
+                    <img src="https://i.imgur.com/qgVrejl.jpeg" alt="釜揚げうどん サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="6">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                香川の釜揚げうどんで有名なお店。香川には美味しいうどん屋が山ほどあるが、このお店は唯一2回行っている。<br>
+                うどんは１玉～９玉まで注文ができる。うどん自体の美味しさもさることながら、つゆがいりこの香りがとても強く、飲み干したくなるくらい旨味がすごい。ちなみにつゆはでかい土瓶から注ぐ（土瓶が熱いため鎖みたいなところを持つ必要あり）。
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/kagawa/A3703/A370302/37000015/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+        </section>
+
+        <!-- よつぼしの記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2021年5月,練馬,焼き鳥,牡蠣">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">焼き鳥・牡蠣（よつぼし）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2021年5月～</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/jZiVPgG.jpeg" alt="お店の料理" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/jZiVPgG.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/BHdch3v.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/Loivuco.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/W7cWcOX.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/WRy2xZP.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                    <img src="https://i.imgur.com/fjtqlIh.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="5">
+                    <img src="https://i.imgur.com/9NBU7Eb.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="6">
+                    <img src="https://i.imgur.com/BwM07ZH.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="7">
+                    <img src="https://i.imgur.com/9vB4D2M.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="8">
+                    <img src="https://i.imgur.com/W00Tj6D.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="9">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                今住んでいる練馬駅近辺で一番通っている、焼き鳥と牡蠣のお店。<br>
+                安いしボリュームもあるし美味しいし、何を頼んでも基本的に外れがない。<br>
+                生牡蠣も1個330円～と安いのに新鮮でサイズも大きく、なぜこの値段で出せるのか不思議なレベル。<br>
+                練馬に来る機会があればぜひ一度行ってみてほしい。
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/tokyo/A1321/A132102/13255736/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+        </section>
+
+        <!-- キングタコスの記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2021年9月,沖縄,タコライス">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">タコライス（キングタコス）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2021年9月</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/mypy5lf.jpeg" alt="タコライス" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/mypy5lf.jpeg" alt="タコライス サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/WLyO4u9.jpeg" alt="タコライス サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/LcN9AQH.jpeg" alt="タコライス サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/35SlrSp.jpeg" alt="タコライス サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/v7uvp8u.jpeg" alt="タコライス サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                    <img src="https://i.imgur.com/o2lDS6E.jpeg" alt="タコライス サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="5">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                沖縄だけにあるタコライスのチェーン店で、タコライス発祥のお店。<br>
+                当時沖縄に住んでいた友達に会いに行った際に連れて行ってもらい、それ以来ドはまりした。<br>
+                タコライス自体あまり食べてこなかった（どちらかというと避けていたくらいだった）が、キングタコスに出会ってからは価値観が180度変わった。ありがとう遠藤。<br>
+                パックにぎちぎちに詰めてもらえるため見栄えこそあまり良くないが味は間違いないので是非一度食べてみてほしい。
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/okinawa/A4703/A470404/47000035/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+        </section>
+        
+        <!-- 味ん味んの記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2021年10月,多摩地域,焼肉">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">焼肉（味ん味ん）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2021年10月～</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/04zUMcy.jpeg" alt="焼肉" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/04zUMcy.jpeg" alt="焼肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/FZiBi6y.jpeg" alt="焼肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/TGuPwyz.jpeg" alt="焼肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/EnacQzO.jpeg" alt="焼肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/W5MXuzD.jpeg" alt="焼肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                    <img src="https://i.imgur.com/cyzHRFx.jpeg" alt="焼肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="5">
+                    <img src="https://i.imgur.com/rE0q9Of.jpeg" alt="焼肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="6">
+                    <img src="https://i.imgur.com/Dk3qqTt.jpeg" alt="焼肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="7">
+                    <img src="https://i.imgur.com/dwBpOvI.jpeg" alt="焼肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="8">
+                    <img src="https://i.imgur.com/HW2WDet.jpeg" alt="焼肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="9">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                中央大学生や多摩出身の方にはおなじみの焼肉チェーン店。読み方は「みんみん」。<br>
+                実は大学生自体には食べたことがなく、ここ4～5年で初めて食べたのだが肉の美味しさと安さのギャップがすごく、コスパの良さに驚愕した。<br>
+                焼肉店は他にも色々行っているが、なんやかんや味ん味んのコスパには勝てないと思っている。絶対にもっと評価されるべきチェーン店。<br>
+                多摩地域にしかないが店舗数はそれなりに多いので、まだ行ったことない方はぜひ一度行ってみてほしい。
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/grouplst/G00859/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+        </section>
+        
+        <!-- 胡月の記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2022年9月,別府,冷麺">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">別府冷麺（胡月）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2022年9月</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/sIZxvf8.jpeg" alt="冷麺" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/sIZxvf8.jpeg" alt="冷麺 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/1eYA2vv.jpeg" alt="冷麺とキムチ サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/TEp87mj.jpeg" alt="冷麺の麺 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/SHE0FGr.jpeg" alt="お店の外観 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/h0KzUmO.jpeg" alt="お店の看板 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                別府冷麺という別府特有の冷麺のお店。このお店は別府冷麵発祥のお店で、別府冷麵はそば粉入りのコシの強い麺、魚介や昆布などの和風出汁スープ、牛肉のチャーシュー、キャベツのキムチなどが特徴とのこと。<br>
+                いわゆる盛岡冷麺より麺がもちもちしていて、スープも出汁の風味が強く飲み干したくなるほど美味しく、他では食べられない唯一無二な味わいだった。<br>
+                残念ながら東京で別府冷麺が食べられるお店がないため、もし別府に行く機会があればぜひ食べてほしい。
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/oita/A4402/A440202/44000594/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+        </section>
+
+        <!-- グレーヌマルシェの記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2023年11月,横浜,ビストロ">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">ビストロ（グレーヌマルシェ 野毛店）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2023年11月</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/7pAmxar.jpeg" alt="牛フィレとフォアグラのロッシーニ" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/7pAmxar.jpeg" alt="牛フィレとフォアグラのロッシーニ サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/P9dPjAT.jpeg" alt="前菜 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/aoCDia2.jpeg" alt="料理とワイン サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/pLX6Ifh.jpeg" alt="お店の雰囲気 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/HETw662.jpeg" alt="お店の外観 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                    <img src="https://i.imgur.com/zkQIxXk.jpeg" alt="ワイン サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="5">
+                    <img src="https://i.imgur.com/FgWQ3kE.jpeg" alt="料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="6">
+                    <img src="https://i.imgur.com/qdPjfHW.jpeg" alt="デザート サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="7">
+                    <img src="https://i.imgur.com/APHy6yC.jpeg" alt="パン サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="8">
+                    <img src="https://i.imgur.com/Tg37dnp.jpeg" alt="お店の雰囲気 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="9">
+                    <img src="https://i.imgur.com/ptdWAu7.jpeg" alt="パスタ サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="10">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                横浜の野毛エリアにある「野毛たべもの横丁」内の一角でフレンチを提供する小さなお店。<br>
+                １つ一つのメニューがおしゃれでお酒もご飯も美味しいのだが、何より名物の「牛フィレとフォアグラのロッシーニ」が唸るくらい美味しい。美味しすぎるのに野毛だからなのかコスパもめちゃくちゃいい。これを食べるためだけにでも行ってみてほしい（予約推奨）。
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/kanagawa/A1401/A140102/14050498/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+        </section>
+
+        <!-- 阿城鵝肉の記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2024年1月,台湾,ガチョウ肉">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">ガチョウ肉（阿城鵝肉 吉林店）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2024年1月</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/wygoiEn.jpeg" alt="ガチョウ肉" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/wygoiEn.jpeg" alt="ガチョウ肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/pngIbcj.jpeg" alt="ガチョウ肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/rV7FudQ.jpeg" alt="ガチョウ肉とご飯 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/zfflolL.jpeg" alt="お店の雰囲気 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/Kkm5sut.jpeg" alt="ガチョウ肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                    <img src="https://i.imgur.com/rz52lfh.jpeg" alt="ガチョウ肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="5">
+                    <img src="https://i.imgur.com/lTul8ah.jpeg" alt="ガチョウ肉 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="6">
+                    <img src="https://i.imgur.com/Yve72pc.jpeg" alt="メニュー サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="7">
+                    <img src="https://i.imgur.com/cW42LO2.jpeg" alt="お店の外観 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="8">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                台湾旅行に行った際に色んな料理を食べたが、正直ダントツでガチョウ肉が美味しかったので紹介したい。<br>
+                日本では基本的に食べられず台湾でも高級料理の部類とのことでローカルな台湾料理に比べるとちょっと値段は高めだが、癖は全くなく肉のうまみが強く、鶏肉より美味しいと感じた。<br>
+                また写真ではわかりづらいが、ご飯にガチョウの油がかかっており、このガチョウ油もガチョウのエキスと旨味が感じられてめちゃくちゃ美味しかった。<br>
+                台湾へ行く機会があればぜひ食べてほしい。
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/taiwan/A5403/A540313/54000107/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+        </section>
+
+        <!-- しまね和牛の記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2024年9月,島根,焼肉">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">しまね和牛（のどぐろ日本海 出雲市駅前店）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2024年9月</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/M4yNb7j.jpeg" alt="しまね和牛の串焼き" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/M4yNb7j.jpeg" alt="しまね和牛の串焼き サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/Misbo4G.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/W3TxGVm.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/xsGHrFV.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/yuXvEa9.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                    <img src="https://i.imgur.com/zIrx5le.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="5">
+                    <img src="https://i.imgur.com/a8jPNEB.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="6">
+                    <img src="https://i.imgur.com/OH2TQVE.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="7">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                のどぐろをはじめとした島根の食材を使った色んな料理が楽しめるお店なのだが、特に予備知識もなく頼んだしまね和牛の串焼きがとんでもなく美味しかったため、このお店というより「しまね和牛」をおすすめしたい。<br>
+                「しまね和牛」は島根県内で生産される黒毛和牛を指し、2022年には肉質を競う2大大会で全国1位となっており、同じ年に同一ブランド牛が2冠を達成するのは全国初だったとのこと。牛肉の旨味がとても強く、普通の和牛とは一味違う独特な味わいだった。<br>
+                東京でもしまね和牛を取り扱っているお店がいくつかあるので、もし気になったら行ってみてほしい。（例えば<a href="https://tabelog.com/tokyo/A1301/A130101/13133424/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">こちら</a>）
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/shimane/A3202/A320201/32004148/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+        </section>
+
+        <!-- 三朝ヨーグルトの記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2024年9月,鳥取,ヨーグルト">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">ヨーグルト（三朝ヨーグルト）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2024年9月</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/MYAIyRP.jpeg" alt="三朝ヨーグルトの外観" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/MYAIyRP.jpeg" alt="三朝ヨーグルトの外観 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/6wpgkqh.jpeg" alt="飲むヨーグルト サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/LuasMi0.jpeg" alt="ヨーグルトバターサンドクッキー サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/o6hcEwF.jpeg" alt="店内商品 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/pOVEE5B.jpeg" alt="商品の陳列 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                    <img src="https://i.imgur.com/gshzHXE.jpeg" alt="別の種類のヨーグルト サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="5">
+                    <img src="https://i.imgur.com/4gPtQZI.jpeg" alt="お店の看板 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="6">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                島根と合わせて鳥取の三朝温泉に行った際に立ち寄ったお店。おすすめとしては飲むヨーグルト（とても濃厚で美味しい）と、ヨーグルトバターサンドクッキー。特にヨーグルトバターサンドクッキーはよくあるバターサンドよりあっさりしていて食べやすいのと、クッキーもほろほろしていてヨーグルトとの相性がとても良い。<br>
+                ヨーグルトバターサンドクッキーは気に入りすぎて旅行から戻ってきた後にネット注文して会社で配ったレベル。皆さんも気になったらぜひ頼んでみてほしい。
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/tottori/A3102/A310203/31006384/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+        </section>
+
+        <!-- ホワイトはうすの記事 -->
+        <section class="review-section bg-white rounded-xl shadow-md p-6 lg:p-8 mb-8" data-tags="2019年,江古田,焼き鳥">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">焼き鳥（ホワイトはうす）</h2>
+            <p class="text-sm text-gray-500 mb-4">訪問時期: 2019年～</p>
+            <!-- 画像ギャラリー -->
+            <div class="mb-6">
+                <!-- メイン画像 -->
+                <div class="main-image-container">
+                    <img src="https://i.imgur.com/3vMOCXZ.jpeg" alt="お店の料理" class="main-image w-full rounded-lg shadow-md">
+                </div>
+                <!-- サムネイル画像 -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <img src="https://i.imgur.com/3vMOCXZ.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="0">
+                    <img src="https://i.imgur.com/CI32FMa.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="1">
+                    <img src="https://i.imgur.com/AmRwQ9m.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="2">
+                    <img src="https://i.imgur.com/XxooBjG.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="3">
+                    <img src="https://i.imgur.com/RWQjIXo.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="4">
+                    <img src="https://i.imgur.com/8mIYu0x.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="5">
+                    <img src="https://i.imgur.com/cEAmnvC.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="6">
+                    <img src="https://i.imgur.com/7uTnZDj.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="7">
+                    <img src="https://i.imgur.com/v6KVWXO.jpeg" alt="お店の料理 サムネイル" class="thumbnail w-24 h-24 rounded-lg object-cover cursor-pointer border-2 border-transparent hover:border-purple-500 transition-colors duration-200" data-index="8">
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                最後に6年以上通っている江古田の焼き鳥のお店を紹介したい。<br>
+                とあるネット記事でこのお店を知り、2019年当時は江古田に住んでいたため試しに行ってみたところ、基本的に料理が全部デカくて安くて美味しい。写真だと伝わりづらいが、焼き鳥も大きく、つくねは大きいハンバーグぐらいのサイズで出てくる。<br>
+                焼き鳥以外にも炭火で焼いたトーストやペヤングで作ったオムそばなど個性的なメニューもあり、全部が美味しい。<br>
+                大人数で入るのは難しいが3～4人くらいであれば入れるので、機会があればぜひ行ってみてほしい。
+            </p>
+            <div class="mt-4 text-right">
+                <a href="https://tabelog.com/tokyo/A1321/A132101/13119252/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline hover:text-purple-600">食べログで見る <span class="text-lg">🔗</span></a>
+            </div>
+        </section>
+
+        <!-- JavaScript for filtering and image gallery -->
+        <script>
+            // フィルタリング機能
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const showAllButton = document.getElementById('show-all-btn');
+            const reviewSections = document.querySelectorAll('.review-section');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filterTag = button.getAttribute('data-filter');
+                    reviewSections.forEach(section => {
+                        section.style.display = 'none';
+                        const tags = section.getAttribute('data-tags');
+                        if (tags && tags.includes(filterTag)) {
+                            section.style.display = 'block';
+                        }
+                    });
+                });
+            });
+
+            showAllButton.addEventListener('click', () => {
+                reviewSections.forEach(section => {
+                    section.style.display = 'block';
+                });
+            });
+            
+            // 画像ギャラリー機能
+            document.querySelectorAll('.review-section').forEach(section => {
+                const mainImage = section.querySelector('.main-image');
+                const thumbnails = section.querySelectorAll('.thumbnail');
+                
+                thumbnails.forEach(thumbnail => {
+                    thumbnail.addEventListener('click', (event) => {
+                        // メイン画像のsrcを、クリックしたサムネイルのsrcに設定
+                        mainImage.src = event.target.src;
+                    });
+                });
+            });
+        </script>
+    </main>
+</body>
+</html>
